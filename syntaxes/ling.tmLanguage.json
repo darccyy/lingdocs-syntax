@@ -34,7 +34,7 @@
     },
 
     "text": {
-      "begin": "\\{'(\\w+\\s)?",
+      "begin": "\\{'(\\w+)?",
       "end": "\\}",
       "name": "markup.quote",
       "captures": { "0": { "name": "markup.inline.raw.string.markdown" } }
@@ -94,28 +94,28 @@
       "begin": "(?<!\\\\)\\*",
       "end": "(?<!\\\\)\\*",
       "name": "markup.italic",
-      "captures": { "0": { "name": "keyword.control" } }
+      "captures": { "0": { "name": "punctuation.definition" } }
     },
 
     "bold": {
       "begin": "(?<!\\\\)\\^",
       "end": "(?<!\\\\)\\^",
       "name": "markup.bold",
-      "captures": { "0": { "name": "keyword.control" } }
+      "captures": { "0": { "name": "punctuation.definition" } }
     },
 
     "underline": {
       "begin": "(?<!\\\\)\\_",
       "end": "(?<!\\\\)\\_",
       "name": "markup.underline",
-      "captures": { "0": { "name": "keyword.control" } }
+      "captures": { "0": { "name": "punctuation.definition" } }
     },
 
     "strike": {
       "begin": "(?<!\\\\)~",
       "end": "(?<!\\\\)~",
       "name": "markup.changed",
-      "captures": { "0": { "name": "keyword.control" } }
+      "captures": { "0": { "name": "punctuation.definition" } }
     },
 
     "ul": {
