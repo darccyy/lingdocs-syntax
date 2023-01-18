@@ -75,7 +75,7 @@
           "name": "keyword.operator"
         },
         {
-          "match": "(?<=\\|)'(\\w+\\s)?",
+          "match": "(?<=\\|)'",
           "name": "markup.inline.raw.string.markdown"
         },
         {
