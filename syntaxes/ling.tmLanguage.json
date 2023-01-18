@@ -1,0 +1,138 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Ling",
+
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#header" },
+    { "include": "#text" },
+    { "include": "#ipa" },
+    { "include": "#phoner" },
+    { "include": "#link" },
+    { "include": "#table" },
+    { "include": "#escape" },
+    { "include": "#italic" },
+    { "include": "#bold" },
+    { "include": "#underline" },
+    { "include": "#strike" },
+    { "include": "#ul" },
+    { "include": "#ol" },
+    { "include": "#hr" }
+  ],
+
+  "repository": {
+    "comment": {
+      "match": "{#.*}",
+      "name": "comment"
+    },
+
+    "header": {
+      "begin": "^#+\\s",
+      "end": "$",
+      "name": "entity.name.section",
+      "beginCaptures": { "0": { "name": "markup.heading" } }
+    },
+
+    "text": {
+      "begin": "\\{'(\\w+\\s)?",
+      "end": "\\}",
+      "name": "markup.quote",
+      "captures": { "0": { "name": "markup.inline.raw.string.markdown" } }
+    },
+
+    "ipa": {
+      "begin": "\\{[\\/\\[]",
+      "end": "\\}",
+      "name": "keyword.other"
+    },
+
+    "phoner": {
+      "begin": "\\{\\*",
+      "end": "\\}",
+      "captures": { "0": { "name": "keyword.operator" } },
+      "patterns": [{ "include": "source.phoner" }]
+    },
+
+    "link": {
+      "begin": "\\{@",
+      "end": "\\}",
+      "captures": { "0": { "name": "keyword.operator" } },
+      "patterns": [
+        {
+          "match": "(?<=@)[^\\s]+",
+          "name": "markup.underline.link"
+        }
+      ]
+    },
+
+    "table": {
+      "begin": "\\{\\|",
+      "end": "\\}",
+      "captures": { "0": { "name": "keyword.control" } },
+      "patterns": [
+        {
+          "match": "\\|",
+          "name": "keyword.operator"
+        },
+        {
+          "match": "(?<=\\|)'(\\w+\\s)?",
+          "name": "markup.inline.raw.string.markdown"
+        },
+        {
+          "match": "(?<=\\|)[\\/\\[]",
+          "name": "keyword.other"
+        }
+      ]
+    },
+
+    "escape": {
+      "match": "\\\\.",
+      "name": "constant.character.escape"
+    },
+
+    "italic": {
+      "begin": "(?<!\\\\)\\*",
+      "end": "(?<!\\\\)\\*",
+      "name": "markup.italic",
+      "captures": { "0": { "name": "keyword.control" } }
+    },
+
+    "bold": {
+      "begin": "(?<!\\\\)\\^",
+      "end": "(?<!\\\\)\\^",
+      "name": "markup.bold",
+      "captures": { "0": { "name": "keyword.control" } }
+    },
+
+    "underline": {
+      "begin": "(?<!\\\\)\\_",
+      "end": "(?<!\\\\)\\_",
+      "name": "markup.underline",
+      "captures": { "0": { "name": "keyword.control" } }
+    },
+
+    "strike": {
+      "begin": "(?<!\\\\)~",
+      "end": "(?<!\\\\)~",
+      "name": "markup.changed",
+      "captures": { "0": { "name": "keyword.control" } }
+    },
+
+    "ul": {
+      "match": "^-\\s",
+      "name": "punctuation.definition.list.begin"
+    },
+
+    "ol": {
+      "match": "^\\.\\s",
+      "name": "punctuation.definition.list.begin"
+    },
+
+    "hr": {
+      "match": "^---$",
+      "name": "markup.heading"
+    }
+  },
+
+  "scopeName": "source.ling"
+}

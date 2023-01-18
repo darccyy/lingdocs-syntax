@@ -1,0 +1,34 @@
+{
+  "name": "lingdocs-syntax",
+  "displayName": "lingdocs-syntax",
+  "description": "Syntax Highlighting for Lingdocs",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "ling",
+        "aliases": [
+          "Ling",
+          "Lingdocs"
+        ],
+        "extensions": [
+          "ling"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "ling",
+        "scopeName": "source.ling",
+        "path": "./syntaxes/ling.tmLanguage.json"
+      }
+    ]
+  }
+}
