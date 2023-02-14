@@ -7,7 +7,7 @@
     { "include": "#header" },
     { "include": "#text" },
     { "include": "#ipa" },
-    { "include": "#phoner" },
+    { "include": "#phonet" },
     { "include": "#link" },
     { "include": "#table" },
     { "include": "#escape" },
@@ -46,11 +46,11 @@
       "name": "keyword.other"
     },
 
-    "phoner": {
-      "begin": "\\{\\*",
+    "phonet": {
+      "begin": "\\{\\;",
       "end": "\\}",
       "captures": { "0": { "name": "keyword.operator" } },
-      "patterns": [{ "include": "source.phoner" }]
+      "patterns": [{ "include": "source.phonet" }]
     },
 
     "link": {
